@@ -52,3 +52,7 @@
             }
         }
 
+         // Event handler for input changes
+         function handleInput() {
+            const inputValue = newTaskInput.value;
+
