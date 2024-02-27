@@ -7,7 +7,7 @@
        taskForm.addEventListener('submit', addTask);
        taskList.addEventListener('click', toggleTask);
        newTaskInput.addEventListener('input', handleInput);
-       
+
         // Function to add a new task
         function addTask(event) {
             event.preventDefault();
@@ -34,6 +34,21 @@
             } else {
                 // Display an error message or take other actions for invalid input
                 alert('Please enter at least three characters for the task.');
+            }
+        }
+
+         // Function to toggle task completion
+         function toggleTask(event) {
+            const clickedElement = event.target;
+
+            if (clickedElement.tagName === 'LI') {
+                // Toggle the completed class
+                clickedElement.classList.toggle('completed');
+
+                // Modify the data-status attribute
+                const currentStatus = clickedElement.getAttribute('data-status');
+                const newStatus = currentStatus === 'completed' ? 'pending' : 'completed';
+                clickedElement.setAttribute('data-status', newStatus);
             }
         }
 
