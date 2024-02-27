@@ -52,7 +52,12 @@
             }
         }
 
-         // Event handler for input changes
-         function handleInput() {
+        
+        // Event handler for input changes
+        function handleInput() {
             const inputValue = newTaskInput.value;
+
+            // Display a message in the console when the input changes
+            console.log('Input value changed:', inputValue);
+        }
 
