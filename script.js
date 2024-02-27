@@ -76,6 +76,9 @@ function numberTasks() {
             task.textContent = `${index + 1}. ${currentText}`;
         }
     });
+
+     // Log the number of tasks to the console
+     console.log('Number of Tasks:', tasks.length);
 }
 
 
@@ -129,36 +132,9 @@ function updateTaskCount() {
     counterElement.textContent = `Tasks Count: ${taskCount}`;
 }
 
-// Function to add a new task
-function addTask(event) {
-    event.preventDefault();
-
-    const taskText = newTaskInput.value;
-
-    if (taskText.trim().length >= 3) {
-        // Create new task element with DocumentFragment
-        const fragment = document.createDocumentFragment();
-        const taskElement = document.createElement('li');
-        taskElement.textContent = taskText;
-
-        // Append task to the fragment
-        fragment.appendChild(taskElement);
-
-        // Add fragment to the list
-        taskList.appendChild(fragment);
-
-        // Clear input
-        newTaskInput.value = '';
-
-        // Number the tasks after adding
-        numberTasks();
-
-        // Update the task count
-        updateTaskCount();
-    } else {
-        // Display an error message or take other actions for invalid input
-        alert('Please enter at least three characters for the task.');
-    }
-}
 
 
+
+
+// Call the function when the page loads to number existing tasks
+window.addEventListener('load', numberTasks);
