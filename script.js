@@ -82,3 +82,36 @@ function numberTasks() {
 // Call the function when the page loads to number existing tasks
 window.addEventListener('load', numberTasks);
 
+
+
+
+
+// // Function to handle online/offline status change
+function handleOnlineStatusChange() {
+    const isOnline = navigator.onLine;
+    console.log('Online status:', isOnline);
+
+    // Example of using localStorage to store and retrieve data
+    if (isOnline) {
+        // If online, store data in localStorage
+        localStorage.setItem('onlineStatus', 'Online');
+    } else {
+        // If offline, retrieve and log data from localStorage
+        const storedStatus = localStorage.getItem('onlineStatus');
+        console.log('Stored Online Status:', storedStatus || 'No stored status');
+    }
+}
+
+// Add an initial check when the page loads
+handleOnlineStatusChange();
+
+
+   // Function to handle window resize event
+   function handleWindowResize() {
+    const windowWidth = window.innerWidth;
+    console.log('Window width:', windowWidth);
+}
+
+// Add the window resize event listener
+window.addEventListener('resize', handleWindowResize);
+
