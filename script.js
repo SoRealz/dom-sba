@@ -60,4 +60,25 @@
             // Display a message in the console when the input changes
             console.log('Input value changed:', inputValue);
         }
+    // Example of parent-child-sibling relationships and iteration
+function numberTasks() {
+    const tasks = document.querySelectorAll('#taskList li');
+
+    tasks.forEach((task, index) => {
+        const currentText = task.textContent.trim();
+        const dotIndex = currentText.indexOf('.') + 1;
+
+        if (dotIndex > 0) {
+            // If a dot is found, update the numbering
+            task.textContent = `${index + 1}. ${currentText.substring(dotIndex).trim()}`;
+        } else {
+            // If no dot is found, add the numbering
+            task.textContent = `${index + 1}. ${currentText}`;
+        }
+    });
+}
+
+
+// Call the function when the page loads to number existing tasks
+window.addEventListener('load', numberTasks);
 
