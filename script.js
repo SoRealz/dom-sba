@@ -29,8 +29,8 @@
                 // Clear input
                 newTaskInput.value = '';
 
-                   // Update the task count after adding a new task
-        updateTaskCount();
+                 // Update the task count after adding a new task
+                updateTaskCount();
 
                 // Number the tasks after adding
                 numberTasks();
