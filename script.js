@@ -29,6 +29,9 @@
                 // Clear input
                 newTaskInput.value = '';
 
+                   // Update the task count after adding a new task
+        updateTaskCount();
+
                 // Number the tasks after adding
                 numberTasks();
             } else {
@@ -126,15 +129,10 @@ counterElement.textContent = 'Tasks Count: 0';
 // Append the counter element to the body
 document.body.appendChild(counterElement);
 
+
 // Function to update the task count
 function updateTaskCount() {
-    const taskCount = document.querySelectorAll('#taskList li').length;
+    const taskCount = taskList.children.length;  // Use taskList.children instead of querying the DOM again
     counterElement.textContent = `Tasks Count: ${taskCount}`;
 }
 
-
-
-
-
-// Call the function when the page loads to number existing tasks
-window.addEventListener('load', numberTasks);
